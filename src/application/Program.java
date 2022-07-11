@@ -1,11 +1,29 @@
 package application;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Program {
 
 	public static void main(String[] args) {
 		
-		
-		System.out.println("Hello");
+		File file = new File("F:\\Cursos e Apostilas\\Curso Java\\workspace-eclipse\\FileScanner\\in.txt");
+		Scanner sc = null;
+		try{
+			sc = new Scanner(file);
+			while (sc.hasNextLine()) {
+				System.out.println(sc.nextLine());
+			}
+		}
+		catch (IOException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		finally {
+			if (sc != null) {
+			sc.close();
+			}
+		}
 	}
 
 }
